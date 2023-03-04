@@ -26,15 +26,16 @@ module.exports = {
         const content = interaction.options.getString('내용')
 
         async function main() {
+            const testAccount = await nodemailer.createTestAccount()
+
             const transporter = nodemailer.createTransport(
                 {
-                    service: 'hotmail',
-                    host: 'smtp.hotmail.com',
+                    host: 'smtp.ethereal.email',
                     port: 587,
                     secure: false,
                     auth: {
-                        user: 'maehwa03@outlook.kr',
-                        pass: 'yoonseok1209'
+                        user: testAccount.user,
+                        pass: testAccount.pass
                     }
                 }
             )
