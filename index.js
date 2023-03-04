@@ -28,4 +28,8 @@ avocado.once(Events.ClientReady, c =>
     }    
 )
 
+avocado.on(Events.MessageCreate, async message => {
+    avocaDokdo.run(message)
+})
+
 avocado.login(token)
